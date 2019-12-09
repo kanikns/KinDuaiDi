@@ -14,37 +14,6 @@
             {% endfor %}
 
             <div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="reserve-popup" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">ระบุวันที่สำหรับการจอง</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <!-- Modal Body-->
-                            <div class="modal-body">
-                                <div class="col-md-12" style="padding: 15px; text-align: center;">
-                                    <p>วันที่จอง:</p>
-                                    <form action="">
-                                        <input type="date" name="borrow_date">
-                                    </form>
-                                    <p style="color: red;">ช้าหมด อดกินนะจ๊ะ</p>
-                                </div>
-                            </div>
-                            <!-- Modal Footer-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="button btn btn-primary" name="addcart"
-                                    value="reserve">ยืนยันการจอง</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Modal -->
                 <div class="row">
                     {% for item in item_list %}
                     <div class="col-md-3">
@@ -55,14 +24,15 @@
                                 <h5 class="card-title">
                                     <input type="checkbox" name="item" value="{{item.id}}"> {{item.item_name}}
                                 </h5>
-                                <p>จำนวนคนตอนนี้: {{item.current_amount}} คน</p>
+                                <p>จำนวนคนตอนนี้: {{item.current_amount}}/{{item.item_amount}} คน</p>
+<!--                                <p>เบอร์โทรติดต่อ: {{borrow.borrows.status}}</p>-->
                                 {% if item.reserve_status == '02' %}
                                 คนเกินแล้วค่า
                                 {% else %}
                                 <br>
                                 {% endif %}
 
-                                <button class="button btn btn-primary" type="submit" name="addcart" value="borrow">จองที่</button>
+                                <center><button class="button btn btn-primary" type="submit" name="addcart" value="borrow">จองที่</button></center>
 
                                 <!--<button class="btn btn-primary">Go to my page</button>-->
                                 <!---<button class="btn btn-primary">-->
