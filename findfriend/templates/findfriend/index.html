@@ -1,11 +1,13 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Friend list</title>
+	<title>HOME</title>
 </head>
 <body>
 	<h1>{{ friend_name }}</h1>
+	<img src="{% static 'findfriend/images/cat.jpg' %}">
 	<ul>
 		{% for friend in friend_list %}
 			<li>{{friend.id}} {{friend.name}} <a href="{% url 'friend_detail' friend_id=friend.id %}">Join</a></li>
