@@ -1,0 +1,104 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+<title>ตรวจสอบข้อมูล</title>
+{% endblock %}
+
+{% block script %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+{% endblock %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div id="app1">
+        <div class="container col-md-8">
+            {% if message %}
+            {{message}}
+            {% else %}
+            <h2>ตรวจสอบจำนวนคน</h2><br>
+            {% if status == '01' %}
+            <label style="color: red;"><i>ตรวจสอบจำนวนคนอีกครั้ง</i></label>
+            {% endif %}
+            {% for brit in borrow_item %}
+            <div class="row">
+                <div class="col-md-12" v-for="blog in blogs" v-show="blog.show">
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-2">
+                                <img src="{{brit.item_id.item_image.url}}" class="card-img-top img-fluid" alt="..." />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{brit.item_id.item_name}}</h5>
+                                    <p class="card-text">
+                                            {% if not brit.item_id.current_amount <= 0 %}
+                                        จำนวนคนที่จะไป
+                                        <input class="col-md-6" type="number" name="borrow_amount{{brit.item_id}}"
+                                            style="width: 5em;" required>
+                                            {% endif %}
+                                        <p style="font-size: 13px;">
+                                            {% if brit.item_id.current_amount <= 0 %}
+                                            (จำนวนคนที่เหลือ {{brit.item_id.current_amount}} คน )
+                                            {% else %}
+                                            (มีว่างอยู่ {{brit.item_id.current_amount}} คน)
+                                            {% endif %}
+                                        </p>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline" style="margin-top: 5%;"><button type="button"
+                                        style="margin-left: 0.5em;" class="btn btn-danger"><a
+                                            href="{% url 'delete_itemcart' borrow.id brit.item_id.id 'borrow' %}"
+                                            style="text-decoration: none; color:white;">ลบ</a></button></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="container col-md-8">
+                <div class="row">
+                    <div class="col-md-12" style="padding: 15px; text-align: center;">
+                        {% if rt_status == '01' %}
+                        <p>
+                            <label style="color: red;"><i> ตัดสินใจช้าหมด อดไม่รู้ด้วยนะ!!</i></label>
+                        </p>
+                        {% endif %}
+                        <p>วันที่ไป:</p>
+                        <center>
+                            <input class="form-control" type="date" name=return_date required style="width: 200px;">
+                        </center>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" style="margin-right: 5;">ยืนยัน</button>
+                <button type="button" style="margin-left: 0.5em;" class="btn btn-light" data-toggle="modal"
+                    data-target="#reserve-popup">ย้อนกลับ</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="reserve-popup" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">แน่ใจนะว่าจะไม่เลือกร้านนี้แล้ว</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <!-- Modal Footer-->
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+{% endif %}
+{% endblock %}
