@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.http import HttpResponse, Http404
 # Create your views here.
 from item.models import Item
-
 from borrow.models import Borrow, Borrow_Item
 
 

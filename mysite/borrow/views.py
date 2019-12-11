@@ -60,7 +60,7 @@ def add_cart(request):
                             reserve.save()
                 #user do not have reserve-cart, then create new reserve-cart
                 else:
-                    print('do not have reserve-cart')
+                    print('don\'t have reserve-cart')
                     borrow = Borrow.objects.create(status='00', student_id=user, borrow_date=borrow_date)
                     for it in items:
                         it_id = int(it)
@@ -577,7 +577,7 @@ def history(request, status):
             user_list = user_list.filter(last_name__icontains=lastname_contains_query)
             query = 'not none'
     print('list count', list_count)
-    bf = Borrow.objects.get(id=109)
+    # bf = Borrow.objects.get(id=109)
     context = {
         'borrow_list': borrow_list,
         'borrowitem_list': borrowitem_list,

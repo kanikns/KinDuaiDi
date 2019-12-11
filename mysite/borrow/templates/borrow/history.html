@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-<title>ประวัติการยืม/คืน</title>
+<title>ประวัติการเข้าร่วม</title>
 {% endblock %}
 {% block script %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -51,17 +51,17 @@
                                                 </h3>
 
                                                 <h4 class="card-text">
-                                                    ชื่อนักศึกษา: {{borrow.student_id.first_name}}
+                                                    ชื่อ: {{borrow.student_id.first_name}}
                                                     {{borrow.student_id.last_name}}
                                                 </h4>
 
-                                                <h4 class="card-text">
+                                                {% comment %} <h4 class="card-text">
                                                     รหัสนักศึกษา: {{borrow.student_id.username}}
-                                                </h4>
+                                                </h4> {% endcomment %}
                                                 <br />
                                                 {% if status == '02' or status == '07' or status == '05' %}
                                                 <h4 class="card-text">
-                                                    วันที่ส่งคำขอ: {{borrow.request_date}} | {{borrow.request_time}}
+                                                    วันที่ร่วม: {{borrow.request_date}} | {{borrow.request_time}}
                                                 </h4>
                                                 <br />
                                                 {% endif %}
