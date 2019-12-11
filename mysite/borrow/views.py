@@ -116,7 +116,7 @@ def add_cart(request):
                 return HttpResponseRedirect('/borrow/cart')
         else:
             print(request.POST)
-            messages.success(request, _('กรุณาเลือกพัสดุ'))
+            messages.success(request, _('เลือกร้านด้วยจ้าาาาาาาาาาาาาาาาาาาาาาาาาาาาาา'))
             return redirect('/item')
 
 def delete_cart(request, id):
