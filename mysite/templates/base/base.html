@@ -34,9 +34,8 @@
 <body>
 
     <ul class="main-nav nav bav-tab justify-content-center">
-        <li class="main-li"><a href="{% url 'item' %}">พัสดุทั้งหมด</a></li>
-        <li class="main-li"><a href="{% url 'cart' %}">ตรวจสอบพัสดุที่ยืม</a></li>
-        <li class="main-li"><a href="{% url 'reserve_check' %}">ตรวจสอบพัสดุที่จอง</a></li>
+        <li class="main-li"><a href="{% url 'item' %}">ร้านอาหารทั้งหมด</a></li>
+        <li class="main-li"><a href="{% url 'cart' %}">ร้านอาหารที่เลือก</a></li>
         <li class="main-li"><a href="{% url 'history' '02' %}">ประวัติการเข้าร่วม</a></li>
         {% if user.is_staff %}
         <li class="main-li"><a href="{% url 'admin_dashboard' '02' %}">Dashboard</a></li>
