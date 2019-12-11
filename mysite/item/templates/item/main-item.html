@@ -1,7 +1,8 @@
+@@ -0,0 +1,79 @@
 {% extends 'base/base.html' %}
 
 {% block script %}
-<title>พัสดุทั้งหมด</title>
+<title>รายละเอียดร้านอาหาร</title>
 {% endblock %}
 
 {% block content %}
@@ -14,11 +15,6 @@
             {% endfor %}
 
             <div>
-                <button class="button btn btn-primary" type="submit" name="addcart" value="borrow">ยืมพัสดุ</button>
-
-                <!-- Button trigger modal -->
-                <button type="button" style="margin-left: 0.5em;" class="btn btn-primary" data-toggle="modal"
-                    data-target="#reserve-popup">จองพัสดุ</button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="reserve-popup" tabindex="-1" role="dialog"
@@ -37,7 +33,7 @@
                                     <form action="">
                                         <input type="date" name="borrow_date">
                                     </form>
-                                    <p style="color: red;">จองล่วงหน้าได้ไม่เกิน 3 วัน</p>
+                                    <p style="color: red;">ช้าหมด อดกินนะจ๊ะ</p>
                                 </div>
                             </div>
                             <!-- Modal Footer-->
@@ -60,12 +56,15 @@
                                 <h5 class="card-title">
                                     <input type="checkbox" name="item" value="{{item.id}}"> {{item.item_name}}
                                 </h5>
-                                <p>จำนวนที่มี: {{item.current_amount}} ชิ้น</p>
+                                <p>จำนวนคนตอนนี้: {{item.current_amount}} คน</p>
                                 {% if item.reserve_status == '02' %}
-                                ไม่สามารถจองพัสดุได้
+                                คนเกินแล้วค่า
                                 {% else %}
                                 <br>
                                 {% endif %}
+
+                                <button class="button btn btn-primary" type="submit" name="addcart" value="borrow">จองที่</button>
+
                                 <!--<button class="btn btn-primary">Go to my page</button>-->
                                 <!---<button class="btn btn-primary">-->
                             </div>
