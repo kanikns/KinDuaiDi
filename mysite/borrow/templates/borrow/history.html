@@ -65,11 +65,12 @@
                                                 </h4>
                                                 <br />
                                                 {% endif %}
+                                                
                                                 <h4><u>ร้าน</u></h4>
                                                 {% for brit in borrowitem_list %}
                                                 {% if brit.borrow_id.id == borrow.id %}
                                                 <h4 class="card-text">
-                                                    <li>{{brit.item_id.item_name}} {{brit.borrow_amount}} ชิ้น</li>
+                                                    <h4>{{brit.item_id.item_name}} {{brit.borrow_amount}} ชิ้น</h4>
                                                 </h4>
                                                 {% endif %}
                                                 {% endfor %}
