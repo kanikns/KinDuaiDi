@@ -66,7 +66,21 @@
                                                 <br />
                                                 {% endif %}
                                                 
-                                                <h4><u>ร้าน</u></h4>
+                                                <h4><u>ร้านอาหาร</u></h4>
+                                                {% for brit in borrowitem_list %}
+                                                {% if brit.borrow_id.id == borrow.id %}
+                                                <h4 class="card-text">
+                                                    <h4>{{brit.item_id.item_name}} {{brit.borrow_amount}} ชิ้น</h4>
+                                                </h4>
+                                                {% endif %}
+                                                {% endfor %}
+
+                                                {% if borrow.status == '06' or borrow.status == '04' %}
+                                                <br />
+                                                 <br />
+                                                {% endif %}
+
+                                                <h4><u>เบอร์ติดต่อ เพิ่มดาต้าเบสตรงนี้จ้า</u></h4>
                                                 {% for brit in borrowitem_list %}
                                                 {% if brit.borrow_id.id == borrow.id %}
                                                 <h4 class="card-text">
