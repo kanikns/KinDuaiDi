@@ -1,2 +1,0 @@
-# KinDuaiDi
-PSIT-Project

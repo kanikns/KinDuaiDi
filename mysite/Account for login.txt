@@ -1,0 +1,7 @@
+Admin Account
+Username: it59070200
+Password: password
+
+Normal User Account
+Username: it59070021
+Password: password

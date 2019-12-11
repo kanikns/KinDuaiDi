@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8c2d8d79-440d-47f1-a07d-7663c942332f" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1SxCUsLmrMryH6MlLbqfSK62WjU" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Project/mysite" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Documents\GitHub\Project_SE\mysite\templates\base" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\Project_SE\mysite\templates" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\Project_SE\mysite" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\Project_SE\mysite\return\templates" />
+      <recent name="C:\Users\Administrator\Documents\GitHub\Project_SE\mysite\item\templates\item" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Project_SE" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Administrator\AppData\Local\Programs\Python\Python37\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8c2d8d79-440d-47f1-a07d-7663c942332f" name="Default Changelist" comment="" />
+      <created>1572495885347</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572495885347</updated>
+      <workItem from="1572495909511" duration="13173000" />
+      <workItem from="1572579693477" duration="3351000" />
+      <workItem from="1572621780738" duration="5778000" />
+      <workItem from="1572628388087" duration="5502000" />
+      <workItem from="1572679082252" duration="78000" />
+      <workItem from="1572679281433" duration="6829000" />
+      <workItem from="1572706085961" duration="3244000" />
+      <workItem from="1572709347412" duration="12314000" />
+      <workItem from="1573123635341" duration="7063000" />
+      <workItem from="1573197259745" duration="4378000" />
+      <workItem from="1573292439447" duration="76000" />
+      <workItem from="1573556038933" duration="3470000" />
+      <workItem from="1573725179366" duration="897000" />
+      <workItem from="1573727250191" duration="1603000" />
+      <workItem from="1573738615777" duration="999000" />
+      <workItem from="1573740738779" duration="6001000" />
+      <workItem from="1573833024067" duration="239000" />
+      <workItem from="1573901911530" duration="2257000" />
+      <workItem from="1573982970749" duration="14468000" />
+      <workItem from="1574144844935" duration="26106000" />
+      <workItem from="1574568968177" duration="7925000" />
+      <workItem from="1574587031142" duration="37294000" />
+      <workItem from="1574654735951" duration="104000" />
+      <workItem from="1574656873868" duration="9361000" />
+      <workItem from="1574679248320" duration="2720000" />
+      <workItem from="1574740612596" duration="20812000" />
+      <workItem from="1574845254576" duration="29674000" />
+      <workItem from="1574998763981" duration="61000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysite/mysite/urls.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysite/account/urls.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/mysite/borrow/views.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

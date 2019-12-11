@@ -1,0 +1,116 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+<title>จองพัสดุ</title>
+{% endblock %}
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <div id="app1">
+        <div class="container col-md-8">
+            {% if message %}
+            {{message}}
+            {% else %}
+            <h2>ตรวจสอบพัสดุที่ต้องการจอง</h2><br>
+            {% if status == '01' %}
+            <label style="color: red;"><i>ตรวจสอบจำนวนพัสดุอีกครั้ง</i></label>
+            {% endif %}
+
+            {% for reserve in reserves %}
+            <div class="row">
+                <div class="col-md-12" v-for="blog in blogs" v-show="blog.show">
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-2">
+
+                                <img src="{{reserve.item_id.item_image.url}}" class="card-img-top img-fluid"
+                                    alt="..." />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{reserve.item_id.item_name}}</h5>
+                                    <p class="card-text">
+                                        จำนวนที่ยืม
+                                        <input class="col-md-6" type="number" name="borrow_amount{{reserve.item_id}}"
+                                            style="width: 5em;" required>
+
+                                        <p style="font-size: 13px;">
+                                            {% if reserve.can_borrow <= 0 %}
+                                            (พัสดุเหลือ {{reserve.can_borrow}} ชิ้น ไม่สามารถยืมพัสดุชิ้นนี้ได้)
+                                            {% else %}
+                                            (มีอยู่ {{reserve.can_borrow}} ชิ้น)
+                                            {% endif %}
+                                        </p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="checkbox-inline" style="margin-top: 5%;"><button type="button"
+                                    style="margin-left: 0.5em;" class="btn btn-danger"><a
+                                        href="{% url 'delete_itemcart' borrow.id reserve.item_id.id 'reserve'%}"
+                                        style="text-decoration: none; color:white;">ลบ</a></button></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="container col-md-8">
+                <div class="row">
+                    <div class="col-md-12" style="padding: 15px; text-align: center;">
+                        {% if rt_status == '01' %}
+                        <label style="color: red;"><i>สามารถยืมพัสดุได้สูงสุด 5 วัน</i></label>
+                        {% endif %}
+
+                        <p>วันที่ยืม : {{borrow.borrow_date}} <a href="{% url 'edit_reservedate' %}">เปลี่ยน</a>
+
+                        </p>
+                        <p>ระบุวันที่ต้องการคืนพัสดุ</p>
+                        <center>
+                            <input class="form-control" type="date" name=return_date required style="width: 200px;">
+                        </center>
+                        <p></p>
+                        <p>หากไม่คืนตามวันที่กำหนด จะต้องทำการเสียค่าปรับ</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" style="margin-right: 5;">ยืนยัน</button>
+                <button type="button" style="margin-left: 0.5em;" class="btn btn-light" data-toggle="modal"
+                    data-target="#reserve-popup">ลบทั้งหมด</button>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="reserve-popup" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">ยืนยันจะลบรายการพัสดุทั้งหมด</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <!-- Modal Footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="type" class="button btn btn-danger"><a
+                                    href="{% url 'delete_cart' borrow.id %}"
+                                    style="text-decoration: none; color:white;">ลบ</a></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

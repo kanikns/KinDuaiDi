@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "borrow\\templates\\borrow"
+		},
+		{
+			"path": "item\\templates\\item"
+		},
+		{
+			"path": "templates\\base"
+		},
+		{
+			"path": "static"
+		}
+	],
+	"settings": {}
+}

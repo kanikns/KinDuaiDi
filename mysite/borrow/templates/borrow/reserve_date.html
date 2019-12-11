@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% block title %}
+<title>จองพัสดุ</title>
+{% endblock %}
+
+{% block content %}
+<div id="app1">
+    <div class="container col-md-8">
+        <form method="post">
+            {% csrf_token %}
+            {% if message %}
+            {{message}}<br>
+            {% endif %}
+            <p>ระบุวันที่ต้องการจองพัสดุ</p>
+            <p><input class="form-control" type="date" name=borrow_date required style="width: 200px;"></p>
+            <button>บันทึก</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

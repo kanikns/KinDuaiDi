@@ -1,0 +1,42 @@
+    if request.POST:
+        return_date = request.POST['return_date']
+        rd = return_date.split('-')
+        return_date = date(int(rd[0]),int(rd[1]),int(rd[2]))
+        current_date = date.today()
+            diff = return_date - current_date
+            if diff.days > 5 or diff.days < 0:
+                rt_status = '01'
+
+        for brit in borrow_item:
+            name = 'borrow_amount' + str(brit.item_id)
+            borrow_amount = request.POST.get(name)
+            delete = 'delete' + str(brit.item_id)
+            delete_item = request.POST.get(delete)
+            if delete_item: #if user need to delete that item, borrow amount of that item is without any effect
+                pass
+            else:
+                if (int(borrow_amount) > brit.item_id.current_amount) or (int(borrow_amount) <= 0):
+                    status = '01'
+
+        if status == '0' and rt_status == '0':
+            borrow.status = '02'
+            borrow.request_date = date.today()
+            borrow.request_time = datetime.now().time().strftime("%H:%M:%S")
+            borrow.return_date = return_date
+            borrow.save()
+            count=0
+            for brit in borrow_item:
+                delete = 'delete' + str(brit.item_id)
+                delete_item = request.POST.get(delete)
+                if delete_item:
+                    brit.delete()
+                else:
+                    name = 'borrow_amount' + str(brit.item_id)
+                    borrow_amount = request.POST.get(name)
+                    print('borrow_item_id: ', brit.id)
+                    brit.borrow_amount = borrow_amount
+                    brit.save()
+                    count = count+1
+            if count == 0:
+                borrow.delete()
+            return redirect('/item')

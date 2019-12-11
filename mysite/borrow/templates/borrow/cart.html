@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-<title>ตรวจสอบข้อมูล</title>
+<title>ยืมพัสดุ</title>
 {% endblock %}
 
 {% block script %}
@@ -17,9 +17,9 @@
             {% if message %}
             {{message}}
             {% else %}
-            <h2>ตรวจสอบจำนวนคน</h2><br>
+            <h2>ตรวจสอบพัสดุที่ต้องการยืม</h2><br>
             {% if status == '01' %}
-            <label style="color: red;"><i>ตรวจสอบจำนวนคนอีกครั้ง</i></label>
+            <label style="color: red;"><i>ตรวจสอบจำนวนพัสดุอีกครั้ง</i></label>
             {% endif %}
             {% for brit in borrow_item %}
             <div class="row">
@@ -34,15 +34,15 @@
                                     <h5 class="card-title">{{brit.item_id.item_name}}</h5>
                                     <p class="card-text">
                                             {% if not brit.item_id.current_amount <= 0 %}
-                                        จำนวนคนที่จะไป
+                                        จำนวนที่ยืม
                                         <input class="col-md-6" type="number" name="borrow_amount{{brit.item_id}}"
                                             style="width: 5em;" required>
                                             {% endif %}
                                         <p style="font-size: 13px;">
                                             {% if brit.item_id.current_amount <= 0 %}
-                                            (จำนวนคนที่เหลือ {{brit.item_id.current_amount}} คน )
+                                            (พัสดุเหลือ {{brit.item_id.current_amount}} ชิ้น ไม่สามารถยืมพัสดุชิ้นนี้ได้)
                                             {% else %}
-                                            (มีว่างอยู่ {{brit.item_id.current_amount}} คน)
+                                            (มีอยู่ {{brit.item_id.current_amount}} ชิ้น)
                                             {% endif %}
                                         </p>
 
@@ -65,21 +65,22 @@
                     <div class="col-md-12" style="padding: 15px; text-align: center;">
                         {% if rt_status == '01' %}
                         <p>
-                            <label style="color: red;"><i> ตัดสินใจช้าหมด อดไม่รู้ด้วยนะ!!</i></label>
+                            <label style="color: red;"><i>สามารถยืมพัสดุได้สูงสุด 5 วัน</i></label>
                         </p>
                         {% endif %}
-                        <p>วันที่ไป:</p>
+                        <p>วันที่คืน:</p>
                         <center>
                             <input class="form-control" type="date" name=return_date required style="width: 200px;">
                         </center>
                         <p></p>
+                        <p>หากไม่คืนตามวันที่กำหนด จะต้องทำการเสียค่าปรับ</p>
                     </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary" style="margin-right: 5;">ยืนยัน</button>
                 <button type="button" style="margin-left: 0.5em;" class="btn btn-light" data-toggle="modal"
-                    data-target="#reserve-popup">ย้อนกลับ</button>
+                    data-target="#reserve-popup">ลบทั้งหมด</button>
             </div>
             <!-- Modal -->
             <div class="modal fade" id="reserve-popup" tabindex="-1" role="dialog"
@@ -87,12 +88,16 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">แน่ใจนะว่าจะไม่เลือกร้านนี้แล้ว</h5>
+                            <h5 class="modal-title" id="exampleModalCenterTitle">ยืนยันจะลบรายการพัสดุทั้งหมด</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>
                         </div>
                         <!-- Modal Footer-->
-                       
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="type" class="button btn btn-danger"><a href="{% url 'delete_cart' br.id %}"
+                                    style="text-decoration: none; color:white;">ลบ</a></a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,111 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+<title>ประวัติการยืม/คืน</title>
+{% endblock %}
+{% block script %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <ul class="nav nav-tabs justify-content-center">
+        {% for tab in tabs %}
+        {% if status == tab.tab_id %}
+        <li class="active"><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li>
+        {% else %}
+        <li><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active">
+            {% for tab in tabs %}
+            {% if status == tab.tab_id %}
+            <h2>{{tab.tab_name}}</h2>
+            {% endif %}
+            {% endfor %}
+
+            <p>ผลการค้นหา {{list_count}} รายการ</p>
+            {% for message in messages %}
+            <br><label style="color: red;"><i>{{message}}</i></label>
+            {% endfor %}
+
+            {% for borrow in borrow_list %}
+            <form method='post'>
+                {% csrf_token %}
+                <div id="appWaitingฺBorrow">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12" v-for="blog in blogs" v-show="blog.show">
+                                <div class="card mb-3">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-8" style="margin-left: 1em;">
+                                            <div class="card-body">
+
+                                                <h3 class="card-title" style="display:inline;">#{{borrow.id}}
+                                                    {% if borrow.status == '04' and borrow.fine %}
+                                                    <h5 style="display: inline; color: red;">(คืนเกินกำหนด)</h5>
+                                                    {% endif %}
+                                                </h3>
+
+                                                <h4 class="card-text">
+                                                    ชื่อนักศึกษา: {{borrow.student_id.first_name}}
+                                                    {{borrow.student_id.last_name}}
+                                                </h4>
+
+                                                <h4 class="card-text">
+                                                    รหัสนักศึกษา: {{borrow.student_id.username}}
+                                                </h4>
+                                                <br />
+                                                {% if status == '02' or status == '07' or status == '05' %}
+                                                <h4 class="card-text">
+                                                    วันที่ส่งคำขอ: {{borrow.request_date}} | {{borrow.request_time}}
+                                                </h4>
+                                                <br />
+                                                {% endif %}
+                                                <h4><u>พัสดุที่ยืม</u></h4>
+                                                {% for brit in borrowitem_list %}
+                                                {% if brit.borrow_id.id == borrow.id %}
+                                                <h4 class="card-text">
+                                                    <li>{{brit.item_id.item_name}} {{brit.borrow_amount}} ชิ้น</li>
+                                                </h4>
+                                                {% endif %}
+                                                {% endfor %}
+
+                                                {% if borrow.status == '06' or borrow.status == '04' %}
+                                                <br />
+                                                <h4 class="card-text">
+                                                    คืนเมื่อ: {{borrow.takeback_date}}
+                                                </h4>
+                                                {% endif %}
+                                                <br />
+                                                {% if borrow.status != '02' and borrow.status != '05' %}
+                                                <h4 class="card-text">
+                                                    วันที่ยืม: {{borrow.borrow_date}}
+                                                </h4>
+                                                {% endif %}
+                                                <h4 class="card-text">
+                                                    กำหนดคืน: {{borrow.return_date}}
+                                                </h4>
+                                                {% if borrow.fine %}
+                                                <h4 class="card-text"><br>
+                                                    ค่าปรับ: {{borrow.fine}}
+                                                </h4>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<hr>
+{% endblock %}
