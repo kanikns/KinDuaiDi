@@ -12,6 +12,7 @@ class Item(models.Model):
     update_date = models.DateField(auto_now=True, auto_now_add=False)
     reserve_status = models.CharField(max_length=2, default='01')
     amount_forreserve = models.IntegerField(default=0)
+    item_price = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.item_name
