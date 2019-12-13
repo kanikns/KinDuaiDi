@@ -15,7 +15,7 @@
         {% if status == tab.tab_id %}
         <li class="active"><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li>
         {% else %}
-        <li><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li>
+        {% comment %} <li><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li> {% endcomment %}
         {% endif %}
         {% endfor %}
     </ul>
@@ -55,9 +55,9 @@
                                                     {{borrow.student_id.last_name}}
                                                 </h4>
 
-                                                {% comment %} <h4 class="card-text">
+                                                <h4 class="card-text">
                                                     รหัสนักศึกษา: {{borrow.student_id.username}}
-                                                </h4> {% endcomment %}
+                                                </h4>
                                                 <br />
                                                 {% if status == '02' or status == '07' or status == '05' %}
                                                 <h4 class="card-text">

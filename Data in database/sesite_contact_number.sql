@@ -16,31 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `borrow_tab`
+-- Table structure for table `contact_number`
 --
 
-DROP TABLE IF EXISTS `borrow_tab`;
+DROP TABLE IF EXISTS `contact_number`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `borrow_tab` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tab_id` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tab_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tab_type` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `contact_number` (
+  `id_number` int(11) NOT NULL,
+  `number` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `borrow_tab`
+-- Dumping data for table `contact_number`
 --
 
-LOCK TABLES `borrow_tab` WRITE;
-/*!40000 ALTER TABLE `borrow_tab` DISABLE KEYS */;
-INSERT INTO `borrow_tab` VALUES (1,'02','รอตอบรับการเข้าร่วม','dashboard'),(3,'03','กำลังเข้าร่วม','all'),(6,'05','ไม่ได้รับการเข้าร่วม','all');
--- 02 เคยเป็น รอการอนุมัติ 05 เคยเป็น ไม่อนุมัติ 03 เคยเป็น กำลังยืม
--- (2,'07','รออนุมัติการจอง','dashboard'),(4,'06','พัสดุมีปัญหา','all'),(5,'04','คืนแล้ว','all'),
-/*!40000 ALTER TABLE `borrow_tab` ENABLE KEYS */;
+LOCK TABLES `contact_number` WRITE;
+/*!40000 ALTER TABLE `contact_number` DISABLE KEYS */;
+INSERT INTO `contact_number` VALUES (1,'0812345678');
+/*!40000 ALTER TABLE `contact_number` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-28  6:44:32
+-- Dump completed on 2019-12-12 15:17:11
