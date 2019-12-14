@@ -15,7 +15,7 @@
         {% if status == tab.tab_id %}
         <li class="active"><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li>
         {% else %}
-        {% comment %} <li><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li> {% endcomment %}
+        <li><a href="{% url 'history' tab.tab_id %}">{{tab.tab_name}}</a></li>
         {% endif %}
         {% endfor %}
     </ul>

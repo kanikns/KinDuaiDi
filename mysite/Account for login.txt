@@ -2,6 +2,10 @@ Admin Account
 Username: it59070200
 Password: password
 
-Normal User Account
-Username: it59070021
+Username: admin
 Password: password
+
+
+Normal User Account
+Username: 59070021
+Password: ilovepsit

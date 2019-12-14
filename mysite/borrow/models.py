@@ -12,18 +12,18 @@ class Borrow(models.Model):
     IN_CART = '01'
     WAIT = '02'
     CONFIRMED = '03'
-    RETURNED = '04'
+    # RETURNED = '04'
     CANCELED = '05'
-    DEFECTIVE = '06'
-    RESERVE = '07'
+    # DEFECTIVE = '06'
+    # RESERVE = '07'
     STATUS = (
         (IN_CART, 'อยู่ในตะกร้า'),
         (WAIT, 'รออนุมัติ'),
         (CONFIRMED, 'ยืนยันการยืม'),
-        (RETURNED, 'คืนแล้ว'),
+        # (RETURNED, 'คืนแล้ว'),
         (CANCELED, 'ยกเลิก'),
-        (DEFECTIVE, 'ของเสีย/หาย'),
-        (RESERVE, 'จอง'),
+        # (DEFECTIVE, 'ของเสีย/หาย'),
+        # (RESERVE, 'จอง'),
     )
     status = models.CharField(max_length=2, choices=STATUS, blank=True, null=True)
     confirm_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name='confirm_by', null=True, blank=True)

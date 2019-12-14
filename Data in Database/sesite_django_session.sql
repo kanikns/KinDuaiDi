@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `borrow_tab`
+-- Table structure for table `django_session`
 --
 
-DROP TABLE IF EXISTS `borrow_tab`;
+DROP TABLE IF EXISTS `django_session`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `borrow_tab` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tab_id` varchar(2) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tab_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tab_type` varchar(9) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `borrow_tab`
+-- Dumping data for table `django_session`
 --
 
-LOCK TABLES `borrow_tab` WRITE;
-/*!40000 ALTER TABLE `borrow_tab` DISABLE KEYS */;
-INSERT INTO `borrow_tab` VALUES (1,'02','รอตอบรับการเข้าร่วม','dashboard'),(3,'03','กำลังเข้าร่วม','all'),(6,'05','ไม่ได้รับการเข้าร่วม','all');
-/*!40000 ALTER TABLE `borrow_tab` ENABLE KEYS */;
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('g6fewxmvmvzeme89vquw8tl8tpmeyo9e','ZmE3ZTRmMTFhNGRjMTM3ZDliMjAwMWI2ZjkyNDBjMDdhNzZhMTlhOTp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0N2U2OGM1YWY4ZmRiNjVhOTNjZTcyMzY3MzQ1YTRiZDk1MTE0Mjg3In0=','2019-12-28 08:53:07.092688'),('q8z0jeaonpjdha53rblinq8zcc3vhvpb','Njg3MTM0OTE5ZmYxZjIwNjNkZTkzMmJjOTJmZTQyMDliMjA1MzJlYTp7Il9hdXRoX3VzZXJfaWQiOiI4IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5NDhmZjA1MmNhNmI5Yjg5Mjg1NTgzZDk4ZGRlYjM4MjY2NTgxOTU3In0=','2019-12-28 08:42:28.805578');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
