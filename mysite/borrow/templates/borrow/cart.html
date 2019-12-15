@@ -36,7 +36,12 @@
                                             {% if not brit.item_id.current_amount <= 0 %}
                                         จำนวนคนที่จะไป
                                         <input class="col-md-6" type="number" name="borrow_amount{{brit.item_id}}"
-                                            style="width: 5em;" required>
+                                            style="width: 5em;" required> ตน
+                                        <br>
+                                        <br>
+                                        เบอร์ติดต่อ
+                                        <input class="col-md-6" type="text" name="borrow_tel{{borrow}}"
+                                            style="width: 10em;" required>
                                             {% endif %}
                                         <p style="font-size: 13px;">
                                             {% if brit.item_id.current_amount <= 0 %}

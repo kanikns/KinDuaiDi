@@ -38,7 +38,9 @@ class Borrow_Item(models.Model):
     borrow_id = models.ForeignKey(Borrow, on_delete=models.PROTECT)
     item_id = models.ForeignKey(Item, on_delete=models.PROTECT)
     borrow_amount = models.IntegerField(blank=True, null=True)
+    borrow_tel = models.CharField(max_length=10, default="")
     # borrow_amount = models.IntegerField(blank=True, null=True)
+
 
 class Reserve(models.Model):
     borrow_id = models.ForeignKey(Borrow, on_delete=models.PROTECT)

@@ -80,11 +80,9 @@
                                                  <br />
                                                 {% endif %}
 
-                                                <h4><u>เบอร์ติดต่อ เพิ่มดาต้าเบสตรงนี้จ้า</u></h4>
-                                                {% for brit in borrowitem_list %}
-                                                {% if brit.borrow_id.id == borrow.id %}
+                                                <h4><u>เบอร์ติดต่อ</u></h4>
                                                 <h4 class="card-text">
-                                                    <h4>{{brit.item_id.item_name}} {{brit.borrow_amount}} คน</h4>
+                                                    <h4>{{borrow.borrow_tel}}</h4>
                                                 </h4>
                                                 {% endif %}
                                                 {% endfor %}
