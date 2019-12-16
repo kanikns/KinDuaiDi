@@ -90,14 +90,21 @@
                                                 </h4>
                                                 <br />
                                                 {% endif %}
-                                                <h4><u>พัสดุที่ยืม</u></h4>
+                                                <h4><u>ร้านอาหารที่เลือก</u></h4>
                                                 {% for brit in borrowitem_list %}
                                                 {% if brit.borrow_id.id == borrow.id %}
                                                 <h4 class="card-text">
-                                                    <li>{{brit.item_id.item_name}} {{brit.borrow_amount}} ชิ้น</li>
+                                                    <li>{{brit.item_id.item_name}} {{brit.borrow_amount}} คน</li>
                                                 </h4>
                                                 {% endif %}
                                                 {% endfor %}
+
+
+
+                                                <h3>มันต้องแอดเบอร์ตรงนี้แต่กูเพิ่มละเออเร่ออ่ะ เพิ่มให้หน่อยจิๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆๆ</h3>
+
+
+                                                
 
                                                 {% if borrow.status == '06' or borrow.status == '04' %}
                                                 <br />
@@ -108,11 +115,11 @@
                                                 <br />
                                                 {% if borrow.status != '02' and borrow.status != '05' %}
                                                 <h4 class="card-text">
-                                                    วันที่ยืม: {{borrow.borrow_date}}
+                                                    วันที่ส่งคำขอ: {{borrow.borrow_date}}
                                                 </h4>
                                                 {% endif %}
                                                 <h4 class="card-text">
-                                                    กำหนดคืน: {{borrow.return_date}}
+                                                    วันที่ไป: {{borrow.return_date}}
                                                 </h4>
                                                 {% if borrow.fine %}
                                                 <h4 class="card-text"><br>
@@ -129,15 +136,6 @@
                                                 10;" name="confirm" value="confirm{{borrow.id}}">อนุมัติ</button>
                                                 <button type="submit" class="btn btn-danger" style=" width: 95px; height: 50px; padding:
                                                 10;" name="confirm" value="cancel{{borrow.id}}">ไม่อนุมัติ</button>
-                                                {% elif borrow.status == '03' %}
-                                                <button type="submit" class="btn btn-success" style=" width: 95px; height: 50px; padding:
-                                                10;" name="confirm" value="return{{borrow.id}}">คืนพัสดุ</button>
-                                                <button type="submit" class="btn btn-danger" style=" width: 95px; height: 50px; padding:
-                                                10;" name="confirm"
-                                                    value="defective{{borrow.id}}">พัสดุมีปัญหา</button>
-                                                {% elif borrow.status == '06' %}
-                                                <button type="submit" class="btn btn-success" style=" width: 95px; height: 50px; padding:
-                                                10;" name="confirm" value="return{{borrow.id}}">คืนพัสดุ</button>
                                                 {% endif %}
                                             </div>
                                         </div>
